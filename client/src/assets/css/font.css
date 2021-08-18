@@ -1,0 +1,67 @@
+@font-face {
+    font-family: Ravelia;
+    src: url('assets/fonts/Ravelia/Revalia-Regular.ttf');
+}
+
+@font-face {
+    font-family: RedHadDisplay;
+    src: url('assets/fonts/RedHatDisplay/RedHatDisplay.ttf');
+}
+
+@font-face {
+    font-family: RedHadDisplayBold;
+    src: url('assets/fonts/RedHatDisplay/RedHatDisplay-Bold.ttf');
+}
+
+.font-rhd {
+    font-family: RedHadDisplay !important;
+}
+
+.font-rhd-bold {
+    font-family: RedHadDisplayBold !important;
+}
+
+.font-ravelia {
+    font-family: Ravelia !important;
+}
+
+.font-10 {
+    font-size: 10px !important;
+}
+
+.font-12 {
+    font-size: 12px !important;
+}
+
+.font-14 {
+    font-size: 14px !important;
+}
+
+.font-15 {
+    font-size: 15px !important;
+}
+
+.font-16 {
+    font-size: 16px !important;
+}
+
+.font-weight-3 {
+    font-weight: 300 !important;
+}
+
+.font-weight-4 {
+    font-weight: 400 !important;
+}
+
+.font-weight-5 {
+    font-weight: 500 !important;
+}
+
+.font-weight-6 {
+    font-weight: 600 !important;
+}
+
+.text-color-1 {
+    color: #1898FC !important;
+}
+

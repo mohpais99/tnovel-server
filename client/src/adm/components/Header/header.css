@@ -1,0 +1,58 @@
+.custom-dropdown button {
+    box-shadow: none !important;
+    background: transparent !important;
+    border: none !important;
+}
+
+.custom-dropdown button .notification {
+    position: absolute;
+    background-color: #FB404B;
+    text-align: center;
+    border-radius: 12px;
+    min-width: 16x;
+    padding: 0 5px;
+    height: 16px;
+    font-size: 10px;
+    color: #FFFFFF;
+    font-weight: bold;
+    line-height: 16px;
+    top: 2px;
+    left: 7px;
+}
+
+.custom-dropdown.notif .dropdown-menu {
+    padding: .35rem 0;
+    max-height: 270px;
+    overflow: auto;
+    min-width: 16rem;
+}
+
+.custom-dropdown.notif .dropdown-menu .detail {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.custom-dropdown.notif .dropdown-menu .detail.not-read {
+    color: #1e2125;
+    background-color: #e9ecef;
+}
+
+.custom-dropdown.notif .dropdown-menu .detail.not-read .notif-content {
+    font-weight: 600;
+}
+
+.custom-dropdown.notif .dropdown-menu .detail img {
+    height: 42px !important;
+    width: 42px !important;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.custom-dropdown.notif .dropdown-menu .detail .notif-content {
+    margin-left: 10px;
+}
+
+.custom-dropdown.notif .dropdown-menu .detail .notif-content .content {
+    font-size: 14px;
+}

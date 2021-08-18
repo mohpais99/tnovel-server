@@ -1,0 +1,51 @@
+.wrapper--adm {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    .main {
+        position: relative;
+        height: 100%;
+        width: calc(100% - 78px);
+        left: 78px;
+        transition: all .5s;
+        .content-panel {
+            padding: 30px 15px;
+            min-height: calc(100vh - 123px);
+            .card-custom {
+                border-radius: 10px;
+                .card-body {
+                    padding: 15px 15px 0px;
+                    .numbers {
+                        text-align: right;
+                        .card-category {
+                            margin-bottom: 0;
+                            font-size: 0.875rem;
+                            font-weight: 400;
+                            color: #9A9A9A;
+                            margin-bottom: 0px;
+                        }
+                        .card-title {
+                            margin: 0;
+                            color: #333333;
+                            font-weight: 300;
+                        }
+                    }
+                }
+                .card-footer {
+                    padding: 0px 15px 10px 15px;
+                    background-color: transparent;
+                    line-height: 30px;
+                    border-top: none !important;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+    .icon-big {
+        font-size: 3em;
+        min-height: 64px;
+        i {
+            line-height: 59px;
+        }
+    }
+}

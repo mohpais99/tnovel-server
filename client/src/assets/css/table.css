@@ -1,0 +1,357 @@
+
+.table .radio,
+.table .checkbox {
+    position: relative;
+    height: 20px;
+    display: block;
+    width: 20px;
+    padding: 0px 0px;
+    margin: 0px 5px;
+}
+
+.table>thead>tr>th,
+.table>tbody>tr>th,
+.table>tfoot>tr>th,
+.table>thead>tr>td,
+.table>tbody>tr>td,
+.table>tfoot>tr>td {
+    padding: 12px 8px;
+    vertical-align: middle;
+    border: none;
+}
+
+.table>thead>tr>th {
+    border-bottom-width: 1px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #9A9A9A;
+    font-weight: 400;
+    padding-bottom: 5px;
+}
+
+.table table>tr>td.td-actions {
+    display: inline-flex !important;
+    border: 0 !important;
+    border-bottom-width: 0 !important;
+}
+
+.table .td-actions .btn {
+    opacity: 0.36;
+    filter: alpha(opacity=36);
+}
+
+.table .td-actions .btn.btn-xs {
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+.table .td-actions {
+    min-width: 90px;
+}
+
+.table>tbody>tr {
+    position: relative;
+    font-size: 14px !important;
+}
+
+.table>tbody>tr:hover .td-actions .btn {
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+
+.card .table tbody td:last-child, .card .table thead th:last-child {
+    padding-right: 15px;
+}
+
+table > :not(:last-child) > :last-child > * {
+    border-bottom-color: none;
+}
+
+.table thead th {
+    border-bottom: none !important;
+    border-top: none !important;
+}
+
+.table .btn-info.btn-link {
+    color: #23CCEF;
+}
+
+.table .btn-danger.btn-link {
+    color: #FB404B;
+}
+
+.table .btn-success.btn-link {
+    color: #87CB16;
+}
+
+.table .btn-warning.btn-link {
+    color: #FFA534;
+}
+
+.table .form-check .form-check-sign,
+.table .form-check .form-check-sign:before,
+.table .form-check .form-check-sign:after {
+    margin-top: -14px;
+}
+
+.card .table tbody td:first-child,
+.card .table thead th:first-child {
+    padding-left: 15px;
+}
+
+.card .table tbody td:last-child,
+.card .table thead th:last-child {
+    padding-right: 15px;
+}
+
+.table-bigboy>thead>tr>th {
+    font-size: 0.875rem !important;
+    text-transform: uppercase;
+    color: #9A9A9A;
+    font-weight: 400;
+}
+
+.table-bigboy>tbody>tr>td {
+    font-size: 0.875rem;
+}
+
+.table-bigboy>tbody>tr>td b {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.table-bigboy .td-name {
+    font-weight: 300;
+    font-size: 1.02rem;
+}
+
+.table-bigboy .td-name {
+    min-width: 240px;
+}
+
+.table-bigboy .td-number {
+    text-align: right;
+    min-width: 110px;
+}
+
+.table-bigboy .td-number small {
+    margin-right: 3px;
+}
+
+.table-bigboy .td-actions {
+    width: 60px;
+    min-width: auto;
+}
+
+.table-bigboy .td-actions .btn {
+    float: right;
+}
+
+.table-bigboy .img-container {
+    height: 130px;
+    width: 80px;
+    overflow: hidden;
+    display: block;
+    border-radius: 6px;
+}
+
+.table-bigboy .img-container img {
+    width: 100%;
+}
+
+.table-with-links .card-body {
+    padding-bottom: 0 !important;
+}
+
+.table-with-links .card-body .table .btn {
+    margin-bottom: 0 !important;
+}
+
+.table-with-links .card-body .table tr td {
+    padding: 7px 3px !important;
+}
+
+
+.table>thead>tr>td.success,
+.table>thead>tr>th.success,
+.table>thead>tr.success>td,
+.table>thead>tr.success>th,
+.table>tbody>tr>td.success,
+.table>tbody>tr>th.success,
+.table>tbody>tr.success>td,
+.table>tbody>tr.success>th,
+.table>tfoot>tr>td.success,
+.table>tfoot>tr>th.success,
+.table>tfoot>tr.success>td,
+.table>tfoot>tr.success>th {
+    background-color: rgba(135, 203, 22, 0.2);
+}
+
+.table-hover>tbody>tr>td.success:hover,
+.table-hover>tbody>tr>th.success:hover,
+.table-hover>tbody>tr.success:hover>td,
+.table-hover>tbody>tr:hover>.success,
+.table-hover>tbody>tr.success:hover>th {
+    background-color: rgba(144, 217, 23, 0.2);
+}
+
+.table>thead>tr>td.info,
+.table>thead>tr>th.info,
+.table>thead>tr.info>td,
+.table>thead>tr.info>th,
+.table>tbody>tr>td.info,
+.table>tbody>tr>th.info,
+.table>tbody>tr.info>td,
+.table>tbody>tr.info>th,
+.table>tfoot>tr>td.info,
+.table>tfoot>tr>th.info,
+.table>tfoot>tr.info>td,
+.table>tfoot>tr.info>th {
+    background-color: rgba(35, 204, 239, 0.2);
+}
+
+.table-hover>tbody>tr>td.info:hover,
+.table-hover>tbody>tr>th.info:hover,
+.table-hover>tbody>tr.info:hover>td,
+.table-hover>tbody>tr:hover>.info,
+.table-hover>tbody>tr.info:hover>th {
+    background-color: rgba(49, 207, 240, 0.2);
+}
+
+.table>thead>tr>td.warning,
+.table>thead>tr>th.warning,
+.table>thead>tr.warning>td,
+.table>thead>tr.warning>th,
+.table>tbody>tr>td.warning,
+.table>tbody>tr>th.warning,
+.table>tbody>tr.warning>td,
+.table>tbody>tr.warning>th,
+.table>tfoot>tr>td.warning,
+.table>tfoot>tr>th.warning,
+.table>tfoot>tr.warning>td,
+.table>tfoot>tr.warning>th {
+    background-color: rgba(255, 165, 52, 0.2);
+}
+
+.table-hover>tbody>tr>td.warning:hover,
+.table-hover>tbody>tr>th.warning:hover,
+.table-hover>tbody>tr.warning:hover>td,
+.table-hover>tbody>tr:hover>.warning,
+.table-hover>tbody>tr.warning:hover>th {
+    background-color: rgba(255, 172, 67, 0.2);
+}
+
+.table>thead>tr>td.danger,
+.table>thead>tr>th.danger,
+.table>thead>tr.danger>td,
+.table>thead>tr.danger>th,
+.table>tbody>tr>td.danger,
+.table>tbody>tr>th.danger,
+.table>tbody>tr.danger>td,
+.table>tbody>tr.danger>th,
+.table>tfoot>tr>td.danger,
+.table>tfoot>tr>th.danger,
+.table>tfoot>tr.danger>td,
+.table>tfoot>tr.danger>th {
+    background-color: rgba(251, 64, 75, 0.2);
+}
+
+.table-hover>tbody>tr>td.danger:hover,
+.table-hover>tbody>tr>th.danger:hover,
+.table-hover>tbody>tr.danger:hover>td,
+.table-hover>tbody>tr:hover>.danger,
+.table-hover>tbody>tr.danger:hover>th {
+    background-color: rgba(251, 79, 89, 0.2);
+}
+
+.table-bigboy > tbody > tr > td {
+    font-size: 0.875rem;
+}
+
+.table > tbody > tr .td-actions .btn {
+    -webkit-transition: all 150ms ease-in;
+    -moz-transition: all 150ms ease-in;
+    -o-transition: all 150ms ease-in;
+    -ms-transition: all 150ms ease-in;
+    transition: all 150ms ease-in;
+}
+
+.btn-info.btn-link {
+    border-color: transparent !important;
+    background-color: transparent !important;
+    color: #888888;
+}
+
+.btn-info.btn-link:hover,
+.btn-info.btn-link:focus,
+.btn-info.btn-link:active {
+    text-decoration: none;
+    border-color: transparent;
+    color: #797979;
+}
+
+.btn-success.btn-link {
+    border-color: transparent !important;
+    background-color: transparent !important;
+    color: #888888;
+}
+
+.btn-success.btn-link:hover,
+.btn-success.btn-link:focus,
+.btn-success.btn-link:active {
+    text-decoration: none;
+    border-color: transparent;
+    color: #797979;
+}
+
+
+.btn-danger.btn-link {
+    border-color: transparent !important;
+    background-color: transparent !important;
+    color: #888888;
+}
+
+.btn-danger.btn-link:hover,
+.btn-danger.btn-link:focus,
+.btn-danger.btn-link:active {
+    text-decoration: none;
+    border-color: transparent;
+    color: #797979;
+}
+
+
+.btn-warning.btn-link {
+    border-color: transparent !important;
+    background-color: transparent !important;
+    color: #888888;
+}
+
+.btn-warning.btn-link:hover,
+.btn-warning.btn-link:focus,
+.btn-warning.btn-link:active {
+    text-decoration: none;
+    border-color: transparent;
+    color: #797979;
+}
+
+
+.table .btn-info.btn-link {
+    color: #23CCEF;
+}
+
+.table .btn-danger.btn-link {
+    color: #FB404B;
+}
+
+.table .btn-success.btn-link {
+    color: #87CB16;
+}
+
+.table .btn-warning.btn-link {
+    color: #FFA534;
+}
+
+
+.btn.btn-icon {
+    padding: 8px;
+}
