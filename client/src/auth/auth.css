@@ -1,0 +1,33 @@
+.wrapper-auth {
+    min-height: 100vh;
+    height: 100%;
+    position: relative;
+    background-image: url('../assets/images/bg.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.wrapper-auth::before {
+    background: linear-gradient(to bottom, #797979 0%, #797979 100%);
+    background-size: 150% 150%;
+    opacity: .33;
+}
+
+.login-left {
+    background-repeat: no-repeat;
+    background-size: 500px;
+    background-position: center;
+}
+
+.auth-icon {
+    font-size: 32px;
+    vertical-align: middle;
+}
+
+.divider:after,
+.divider:before {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #eee;
+}

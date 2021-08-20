@@ -3,10 +3,12 @@ import { Form, Modal } from 'react-bootstrap';
 import Multiselect from 'multiselect-react-dropdown';
 import './modal.css';
 import { fUpload } from 'services/api';
+import MDEditor from '@uiw/react-md-editor';
 
 function ModalFunction(props) {
     const [state, setState] = React.useState(null)
     const [imagePreview, setImagePreview] = React.useState(null);
+    const [sinopsys, setSinopsys] = React.useState("**Type sinopsys!!!**");
     const [file, setFile] = React.useState(null);
 
     const handleOnchange = (e) => {
@@ -37,7 +39,12 @@ function ModalFunction(props) {
 
     const handleSave = async (e) => {
         e.preventDefault()
-        await fUpload('novel/upload', file, state)
+        state.sinopsys = sinopsys
+        var upload = await fUpload('novel/upload', file, state)
+        console.log(upload);
+        removeImage()
+        setState(null)
+        props.setShow(false)
     };
 
     const RenderImage = () => {
@@ -101,7 +108,7 @@ function ModalFunction(props) {
                                 <Form.Select id="type" name="type" onChange={handleOnchange} aria-label="Default select example">
                                     <option value="" disabled>-- Select One --</option>
                                     <option value="WN">Web Novel (WN)</option>
-                                    <option value="LN">Light Novel (WN)</option>
+                                    <option value="LN">Light Novel (LN)</option>
                                 </Form.Select>
                             </Form.Group>
                         </div>
@@ -142,6 +149,18 @@ function ModalFunction(props) {
                                     onRemove={onRemove} // Function will trigger on remove event
                                     displayValue="title" // Property name to display in the dropdown options
                                 />
+                            </div>
+                        </div>
+                    </div>
+                    <div className="row my-2">
+                        <div className="col-sm-12 col-md-12">
+                            <div className="form-group">
+                                <label className="font-weight-6">Sinopsys Novel</label>
+                                <MDEditor
+                                    value={sinopsys}
+                                    onChange={setSinopsys}
+                                />
+                                {/* <MDEditor.Markdown source={sinopsys} /> */}
                             </div>
                         </div>
                     </div>

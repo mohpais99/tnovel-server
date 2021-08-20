@@ -4,15 +4,19 @@ import Routes from 'Routes';
 
 import 'assets/css/index.css';
 import 'assets/css/font.css';
-// boxicon
+// Boxicon
 import 'boxicons/dist/boxicons';
 import 'boxicons/css/boxicons.min.css';
-// bootstrap
+// Bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
+// Notify
+import 'react-toastify/dist/ReactToastify.css'
+// Context
+import { AuthProvider } from 'helpers/Context';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <AuthProvider>
     <Routes />
-  </React.StrictMode>,
+  </AuthProvider>,
   document.getElementById('root')
 );

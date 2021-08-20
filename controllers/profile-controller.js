@@ -1,6 +1,31 @@
 const {query} = require('../config/database');
 
 module.exports = {
+    async getAllProvile(req, res) {
+        let q = `
+            SELECT 
+                prof.fullname, 
+                prof.photo,
+                auth.email,
+                auth.username,
+            FROM 
+                profiles as prof 
+            LEFT JOIN
+                auths as auth ON prof.auth_id = auth.id
+        `
+        try {
+            const results = await query(q,)
+
+            res.status(200).json({data: results})
+
+        } catch (error) {
+            console.log(error);
+            res.status(500).json({
+                data: [],
+                message: error || `Some error on function createAuth`
+            })
+        }
+    },
     async findProfielById(req, res) {
         const {id} = req.params
         let q = `

@@ -76,7 +76,7 @@ var
     },
     isUndefined = (str) => {
         return !str
-    }
+    },
     _nBitEnc = function (source, baseNBitLen, key) {
         //return _bNE(baseNBitLen || 6, source, key);
         baseNBitLen = baseNBitLen || _defaultBaseNBitLen;
@@ -191,7 +191,7 @@ var
         }
     },
     /**
-        * Generate Token
+        * Verify Token
         * @param {string} email 
         * @param {int} id 
         * @param {boolean} is_admin 
@@ -200,7 +200,7 @@ var
     verifyToken = (req, res, next) => {
         var token = req.body.token || req.query.token || req.headers['x-access-token']
         if (!token)
-            return res.status(403).json({
+            return res.status(401).json({
                 message: "A token is required for authentication"
             });
         try {

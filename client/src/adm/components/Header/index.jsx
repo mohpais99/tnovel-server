@@ -18,7 +18,7 @@ function Header(props) {
                 <Button className="btn-none my-auto me-1 d-none d-md-block" onClick={props.handleSidebar}>
                     <i className={classes}></i>
                 </Button>
-                <Navbar.Brand href="#home">{headerName[0].toUpperCase() + headerName.substring(1)}</Navbar.Brand>
+                <Navbar.Brand className="d-none d-md-block" href="#home">{headerName[0].toUpperCase() + headerName.substring(1)}</Navbar.Brand>
                 <Navbar.Toggle className="btn-none" aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="ms-auto my-auto">

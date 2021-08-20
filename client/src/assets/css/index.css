@@ -43,3 +43,23 @@ a {
 .cursor-pointer {
     cursor: pointer !important;
 }
+
+.bg-cyan {
+    background-color: #f1f3ff !important;
+}
+
+.my-input {
+    box-shadow: none !important;
+    outline: none;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-radius: 0%;
+    padding-left: 0%;
+}
+
+
+.my-input::placeholder {
+    color: #aaabb3 !important;
+    font-size: 14px;
+}

@@ -15,6 +15,24 @@ module.exports = {
             })
         }
     },
+    async findUserToken(req, res) {
+        const {token} = req.body;
+        try {
+            const {rows} = await query('SELECT * FROM auths WHERE token = $1', [token])
+
+            res.status(200).json({data: rows[0]})
+        } catch (error) {
+            console.log(error);
+            res.status(500).json({
+                data: null,
+                message: error || `Some error on function findUserToken`
+            })
+        }
+    },
+    /**
+     * Useful function to handle user login
+     * @returns
+     */
     async createAccount(req, res){
         const {email, fullname, username, password} = req.body;
         const now = new Date;
@@ -57,14 +75,16 @@ module.exports = {
      * @returns Object
      */
     async loginAccount(req, res) {
-        // var emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ regex
-        var {us} = req.body
+        var {us} = req.body;
+        var datenow = new Date();
         var q_get = `
             SELECT 
                 a.id as id, 
-                a.email, 
+                a.email,
+                a.role,
                 a.password,
-                p.id as user_id
+                p.id as user_id,
+                p.fullname
             FROM 
                 auths as a 
             LEFT JOIN
@@ -82,25 +102,25 @@ module.exports = {
 
             // If the email is already in the database, the system will compare the input password whether or not it matches with the password in the database
             if (data && (await comparePassword(password, data.password))) {
-
+                delete data.password
                 // if match then add value last_login and generate token for user
-                const {rowCount} = await query('UPDATE auths SET last_login=$1 WHERE id=$2', [new Date(), data.id])
+                const token = generateToken({user_id: data.user_id, email: data.email, fullname: data.fullname, role: data.role})
+                const {rowCount} = await query('UPDATE auths SET last_login=$1, token=$2 WHERE id=$3', [datenow, token, data.id])
                 if (rowCount < 1)
                     return res.status(400).send({message: "Something error when updating data!"});
-
-                const token = generateToken({user_id: data.user_id, email: data.email})
-                data.token = token;
                 
+                data.token = token;
                 return res.status(200).json({
                     message: `Login success for ${data.email}`,
                     data: data
                 })
             }
 
-            return res.status(400).json({message: "Please check your email and password!"});
+            return res.status(400).json({message: "Please check your email and password!", data: null});
         } catch (error) {
             return res.status(500).json({
-                message: error || `Something err in funtion do login`
+                message: error || `Something err in funtion do login`,
+                data: null
             })
         }
 

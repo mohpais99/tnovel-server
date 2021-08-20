@@ -27,21 +27,61 @@ module.exports = {
                 novel.chapter = chapter.rows
                 return res.status(200).json({data: novel})
             }
-            return res.status(200).json({data: []})
+            return res.status(200).json({data: null})
         } catch (error) {
-            console.log(error);
+            console.log(error || `Some error on function getNovelBySlug`);
             return res.status(500).json({
-                data: [],
-                message: error || `Some error on function createAuth`
+                data: null,
+                message: error || `Some error on function getNovelBySlug`
             })
         }
     },
     
     async createNovelWithUpload(req, res) {
+        var {user_id} = req.user;
         var file = req.file;
-        var {name, sinopsys, othername, author, type, genre, language} = req.body;
-        console.log(name, sinopsys, othername, author, type, genre, language);        
-        return res.status(200).send({ message: "Something err when upload file!" });
+        var {name, sinopsys, othername, author, type, genre, language, year} = req.body;
+        var q_insert = `
+            INSERT INTO 
+                novels (
+                    name,
+                    profile_id,
+                    sinopsys, 
+                    slug, 
+                    othername,
+                    poster,
+                    genres,
+                    author,
+                    language, 
+                    type,
+                    status,
+                    publish, 
+                    release_year,
+                    created_at, 
+                    updated_at
+                ) 
+            VALUES
+                ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15)
+            returning id
+        `
+        try {
+            const now = new Date()
+            const filename = file.originalname.replace(/\s+/g, '-').toLowerCase()
+            const {rowCount, rows} = await query(q_insert, 
+                [name, user_id, sinopsys, makeSlug(name), othername, filename, JSON.stringify(genre), author, language, type, false, false, year, now, now]
+            )
+
+            if (rowCount < 1)
+                return res.status(500).json({s: 0, message: `Failed when inserted ${title}`})
+            
+            return res.status(201).json({s: 1, message: `Successfully when inserted ${name} with id => ${rows[0].id}`})
+        } catch (error) {
+            console.log(error);
+            return res.status(500).json({
+                s: 0, 
+                message: error || `Some error on function create novel`
+            })
+        }
 
     },
     async createNovel(req, res) {

@@ -5,9 +5,9 @@ function index(props) {
     return (
         <tr>
             <td className="text-center" colSpan={props.cols}>
-                <Spinner animation="grow" variant="success" />
-                <Spinner animation="grow" variant="success" />
-                <Spinner animation="grow" variant="success" />
+                <Spinner animation="border" size="sm" />
+                <Spinner animation="border" size="sm" />
+                <Spinner animation="border" size="sm" />
             </td>
         </tr>
     )

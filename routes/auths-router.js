@@ -5,6 +5,7 @@ const {verifyToken} = require('../helpers/Global')
 const controller = require('../controllers/auth-controller');
 
 router.get('/list-guest', verifyToken, controller.findAll);
+router.get('/get', verifyToken, controller.findUserToken);
 router.post('/do-login', controller.loginAccount);
 router.post('/register', controller.createAccount)
 

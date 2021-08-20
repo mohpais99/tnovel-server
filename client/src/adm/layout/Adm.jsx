@@ -4,6 +4,8 @@ import routes from 'adm/admRoutes';
 import '../adm.css';
 import 'assets/css/table.css'
 import { Redirect, Route, Switch } from 'react-router-dom';
+import withAuthAdmin from 'adm/withAuthAdmin';
+import {NotFound} from 'adm/views/Pages';
 
 export class Adm extends Component {
     constructor(props) {
@@ -14,7 +16,6 @@ export class Adm extends Component {
         this.handleSidebar = this.handleSidebar.bind(this);
         this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
     }
-
     componentDidMount() {
         this.updateWindowDimensions();
         window.addEventListener("resize", this.updateWindowDimensions.bind(this));
@@ -56,20 +57,22 @@ export class Adm extends Component {
     render() {
         return (
             <div className="wrapper--adm">
-                <Sidebar show={this.state.sidebar} device={this.state.device} />
+                <Sidebar show={this.state.sidebar} device={this.state.device} routes={routes} handleModalLogout={this.handleModalLogout} />
                 
                 <div className="main">
                     <Header sidebar={this.state.sidebar} handleSidebar={this.handleSidebar} />
                     <div className="content-panel">
                         <Switch>
                             {this.getRoutes(routes)}
+                            <Route path='/admpanel/*' component={NotFound} exact={true} />
                             <Redirect from="/admpanel" to="/admpanel/dashboard" />
                         </Switch>
                     </div>
                 </div>
+                
             </div>
         )
     }
 }
 
-export default Adm;
+export default withAuthAdmin(Adm);

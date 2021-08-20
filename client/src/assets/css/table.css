@@ -16,7 +16,7 @@
 .table>tbody>tr>td,
 .table>tfoot>tr>td {
     padding: 12px 8px;
-    vertical-align: middle;
+    /* vertical-align: middle; */
     border: none;
 }
 
@@ -36,6 +36,9 @@
 }
 
 .table .td-actions .btn {
+    box-shadow: none;
+    outline: none;
+    border: none;
     opacity: 0.36;
     filter: alpha(opacity=36);
 }
@@ -148,7 +151,7 @@ table > :not(:last-child) > :last-child > * {
 }
 
 .table-bigboy .img-container {
-    height: 130px;
+    height: auto;
     width: 80px;
     overflow: hidden;
     display: block;

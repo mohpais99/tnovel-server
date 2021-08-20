@@ -1,12 +1,15 @@
 import React from 'react'
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, OverlayTrigger, Row, Tooltip } from 'react-bootstrap';
 import noposter from "assets/images/image-not-available.jpg";
-import ReactHtmlParser from 'react-html-parser';
+// import ReactHtmlParser from 'react-html-parser';
 import * as g from 'services/global';
 import { Pagination, ModalAddNovel, LoadingTable } from 'adm/components';
 import { get } from 'services/api';
+import MDEditor from '@uiw/react-md-editor';
+import { useHistory } from 'react-router-dom';
 
 function NovelArchive() {
+    const history = useHistory()
     const [novel, setNovel] = React.useState([])
     const [genre, setGenre] = React.useState([])
     const [loading, setLoading] = React.useState(true)
@@ -46,7 +49,7 @@ function NovelArchive() {
                         <div className="img-container">
                             {
                                 novel.poster ?
-                                    <img src={`http://localhost:4000/${novel.poster}`} className="w-100" alt="thumb-novel" />
+                                    <img src={`http://localhost:4000/poster/${novel.poster}`} className="w-100" alt="thumb-novel" />
                                 :
                                     <img src={noposter} className="w-100" alt="thumb-novel" />
                             }
@@ -62,17 +65,28 @@ function NovelArchive() {
                         }
                         ({novel.type})
                     </td>
-                    <td>{ReactHtmlParser(novel.sinopsys)}</td>
+                    {/* <td>{ReactHtmlParser(novel.sinopsys)}</td> */}
+                    <td className="font-10" style={{fontSize: "10px"}}><MDEditor.Markdown className="font-14" source={novel.sinopsys} /> </td>
                     <td className="td-number">{g.getDateInd(novel.created_at)}</td>
                     <td className="td-number">1k</td>
                     <td className="td-actions border-0">
-                        <button type="button" rel="tooltip" data-placement="left" title="sss" className="btn btn-info btn-link btn-icon" data-original-title="View Post">
-                            <i className='bx bx-image'></i>
-                        </button>
-                        <button type="button" rel="tooltip" data-placement="left" title="" className="btn btn-success btn-link btn-icon" data-original-title="Edit Post">
+                        <OverlayTrigger
+                            placement="left"
+                            delay={{ show: 150, hide: 200 }}
+                            overlay={
+                                <Tooltip id="button-tooltip" >
+                                    View Novel
+                                </Tooltip>
+                            }
+                        >
+                            <button type="button" onClick={() => history.push(`novel/view/${novel.slug}`)} className="btn btn-info btn-link btn-icon">
+                                <i className='bx bx-image'></i>
+                            </button>
+                        </OverlayTrigger>
+                        <button type="button" className="btn btn-success btn-link btn-icon">
                             <i className='bx bx-edit' ></i>
                         </button>
-                        <button type="button" rel="tooltip" data-placement="left" title="" className="btn btn-danger btn-link btn-icon " data-original-title="Remove Post">
+                        <button type="button" className="btn btn-danger btn-link btn-icon">
                             <i className='bx bx-x' ></i>
                         </button>
                     </td>
@@ -91,7 +105,7 @@ function NovelArchive() {
             <Container fluid>
                 <Row className="my-1">
                     <Col sm="12">
-                        <div className="card">
+                        <div className="card shadow">
                             <div className="card-header border-bottom pb-2">
                                 <div className="row justify-content-space-between">
                                     <div className="col">
@@ -109,7 +123,7 @@ function NovelArchive() {
                             <div className="card-body table-responsive">
                                 <table className="table table-bigboy">
                                     <thead>
-                                        <tr>
+                                        <tr style={{whiteSpace: "nowrap"}}>
                                             <th className="text-center">Thumb</th>
                                             <th>Novel Title</th>
                                             <th>Type Novel</th>

@@ -1,0 +1,68 @@
+.detail--novel .poster-image {
+    box-shadow: rgba(50, 50, 50, 0.5) 0px 1px 4px 0px;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 80%;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+}
+
+.detail--novel .poster-image img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.detail--novel .rating i{
+    font-size: 22px;
+    vertical-align: middle;
+}
+
+.detail--novel .info.table {
+    border: none;
+}
+
+.detail--novel .info.table .title {
+    padding-left: 0;
+    font-weight: 700;
+}
+
+.detail--novel .info.table td {
+    border-top: none;
+    font-size: .87931rem !important;
+    vertical-align: text-top;
+}
+
+.detail--novel .info.table tbody p {
+    margin: 0;
+}
+
+.detail--novel .info.table tbody tr:first-child td{
+    min-width: 150px !important;
+}
+
+.detail--novel .info.table tr:last-child{
+    border: none;
+}
+
+.detail--novel .icon {
+    text-align: center;
+    border-right: 1px solid #dee2e6 !important;
+}
+
+.detail--novel .interaction {
+    width: 100%;
+    font-size: .87931rem;
+}
+
+.detail--novel .interaction i {
+    margin-right: .2rem
+}
+
+.detail--novel .desc .card {
+    background-color: rgb(247, 247, 247) !important;
+    border-radius: 5px;
+    padding: 5px 0px;
+}
